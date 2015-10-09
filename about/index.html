@@ -1,10 +1,11 @@
 
- <!DOCTYPE HTML>
+  
+    <!DOCTYPE HTML>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   
-    <title>N1k0&#39;s Blog</title>
+    <title>about | N1k0&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="N1k0">
@@ -21,9 +22,9 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
-  <body>
-    <header>
-      <div>
+      <body>
+        <header>
+          <div>
 			<div id="textlogo">
 				<h1 class="site-name"><a href="/" title="N1k0&#39;s Blog">N1k0&#39;s Blog</a></h1>
 				<h2 class="blog-motto"><a href="/">Less is more</h2>
@@ -48,66 +49,53 @@
 				</ul>
 			</nav>
 </div>
-    </header>
+        </header>
     <div id="wrap">
 
-    <div id="container">
-      <div id="main">
-
-  <section class="post" itemscope itemprop="blogPost">
-    <div id="main-col" class="alignleft">
-    <time datetime="2015-10-09T17:59:44.000Z" itemprop="datePublished">
-      <a href="/2015/10/10/A-new-new-Start/" title="A new new Start" itemprop="url"  class="article-time">2015-10-10</a>
+        <div id="container">
+          <div id="main" class="page" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+    <time datetime="2015-10-09T20:12:54.000Z" itemprop="datePublished">
+      <a href="/about/index.html" title="about" itemprop="url" class="article-time">2015-10-10</a>
     </time>
-  <h1 itemprop="name" class="post-title">
-  
-    <a href="/2015/10/10/A-new-new-Start/" title="A new new Start" itemprop="url"><span>A new new Start</span></a>
-  
-</h1>
 
+  <h1 itemprop="name" class="article-name">
     
-     
-           <p itemprop="description" >又回到hexo写博客了， 其实最近都没怎么写。。。太忙了，忙得自己都不知道在干什么(成功水得一篇博文- -)...</p>
-        
-    
+      <a href="/about/index.html" title="about" itemprop="url"><span>about</span></a>
+  </h1>
+</header>
 
-    <div class="more-link">
-            <!-- <a href="/2015/10/10/A-new-new-Start/" class="more-link"><span>Read More</span></a> -->
-      <div class="clearfix"></div>
-    </div>
+	<div class="article-content">
+		
+		
+		<p>###This is ?</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://n1k0.top/about/index.html" data-title="about | N1k0&#39;s Blog" data-tsina="undefined" class="share clearfix">
+  </div>
 
 </div>
+</footer>   	       
+	</article>
+	
+	
+<section class="comment">
+	<div class="ds-thread"></div>
 </section>
 
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-
-  <div class="linkslist">
-<p class="asidetitle">links</p>
-    <ul>
-      <li><a href="https://blog.leoc.io/" target="_blank" title="LeoC">LeoC</a></li>
-    </ul>
-</div>
-
-
-  <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
-</div>
+</div>  
+        </div>
     </div>
-</div>
-    <footer><div id="footer" >
+        <footer><div id="footer" >
 	
     <div class="social-font" class="clearfix">
         
@@ -141,7 +129,7 @@
 		</p>
 </div>
 </footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+        <script src="/js/jquery-2.0.3.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
   $('.navbar').click(function(){
@@ -188,8 +176,69 @@ $(document).ready(function(){
 </script>
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});
+</script>
 
 
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"Niko"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+});
+</script>
 
 
 <script type="text/javascript">
@@ -202,6 +251,7 @@ ga('send', 'pageview');
 </script>
 
 
+
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -210,5 +260,6 @@ MathJax.Hub.Config({
 <script type="text/javascript"
    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-  </body>
- </html>
+      </body>
+     </html>
+     
