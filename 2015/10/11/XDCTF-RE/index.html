@@ -15,7 +15,7 @@
 <meta property="og:description" content="#0x0 前言
 
 花了点时间做了下XDCTF的RE部分和pwn,不打算写writeup,就当是总结好了">
-<meta property="og:updated_time" content="2015-10-11T16:52:39.000Z">
+<meta property="og:updated_time" content="2015-10-11T17:16:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XDCTF RE">
 <meta name="twitter:description" content="#0x0 前言
@@ -90,7 +90,7 @@
 <a id="more"></a>
 <p>##0x1 r100</p>
 <blockquote>
-<p>这题其实挺简单的，但是我想很多人和我一样都没有去看init_array 和fini_array<br>这两处， 所以在主函数里，大家都多抑或了一个0x7 .这题最大的误导感觉是题目的提示吧,说是flag内的英文小写,而我最开始的flag是对称的,就是某个字母的大小写有问题,所以就让我觉得我是对的，导致花了很多时间。不过后来也巧，我去查了下字符串发现多了一个引用，最后才指向了fini_array.真坑.</p>
+<p>这题其实挺简单的，但是我想很多人和我一样都没有去看init_array 和fini_array这两处， 所以在主函数里，大家都多抑或了一个0x7 .这题最大的误导感觉是题目的提示吧,说是flag内的英文小写,而我最开始的flag是对称的,就是某个字母的大小写有问题,所以就让我觉得我是对的，导致花了很多时间。不过后来也巧，我去查了下字符串发现多了一个引用，最后才指向了fini_array.真坑.</p>
 </blockquote>
 <p>##0x2 r200 </p>
 <blockquote>
@@ -114,7 +114,7 @@
 </blockquote>
 <p>##0x6 pwn100 </p>
 <blockquote>
-<p>看到题目的第一感觉是漏洞重现,于是百度了一下,找到了cve号码,后来又在exdb上<br>找到了完整的利用的代码,对比了一下完全一样,所以shellcode就是90909后面的<br>运行一下就出结果了.</p>
+<p>看到题目的第一感觉是漏洞重现,于是百度了一下,找到了cve号码,后来又在exdb上找到了完整的利用的代码,对比了一下完全一样,所以shellcode就是909090后面的 运行一下就出结果了.</p>
 </blockquote>
 <p>##0x7 xxx</p>
 <blockquote>
