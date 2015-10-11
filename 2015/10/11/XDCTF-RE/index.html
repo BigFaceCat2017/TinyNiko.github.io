@@ -4,12 +4,18 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>A new new Start | N1k0&#39;s Blog</title>
+    <title>XDCTF RE | N1k0&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="N1k0">
     
-    <meta name="description" content="又回到hexo写博客了， 其实最近都没怎么写。。。太忙了，忙得自己都不知道在干什么(成功水得一篇博文- -)">
+    <meta name="description" content="#0x0 前言
+
+花了点时间做了下XDCTF的RE部分和pwn,不打算写writeup,就当是总结好了。
+
+##0x1 r100
+
+这题其实挺简单的，但是我想很多人和我一样都没有去看init_array 和fini_array这两处， 所以在主函数里，大家都多抑或了一个0x7 .这题最大的误导感觉是">
     
     
     
@@ -54,13 +60,13 @@
       <div id="main" class="post" itemscope itemprop="blogPost">
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
-    <time datetime="2015-10-09T17:59:44.000Z" itemprop="datePublished">
-      <a href="/2015/10/10/A-new-new-Start/" title="A new new Start" itemprop="url" class="article-time">2015-10-10</a>
+    <time datetime="2015-10-11T14:54:43.000Z" itemprop="datePublished">
+      <a href="/2015/10/11/XDCTF-RE/" title="XDCTF RE" itemprop="url" class="article-time">2015-10-11</a>
     </time>
 
   <h1 itemprop="name" class="article-name">
     
-      <a href="/2015/10/10/A-new-new-Start/" title="A new new Start" itemprop="url"><span>A new new Start</span></a>
+      <a href="/2015/10/11/XDCTF-RE/" title="XDCTF RE" itemprop="url"><span>XDCTF RE</span></a>
   </h1>
 </header>
 
@@ -74,20 +80,58 @@
 		
 		</div>
 		
-		<blockquote>
-<p>又回到hexo写博客了， 其实最近都没怎么写。。。太忙了，忙得自己都不知道在干什么(成功水得一篇博文- -)</p>
+		<p>#0x0 前言</p>
+<blockquote>
+<p>花了点时间做了下XDCTF的RE部分和pwn,不打算写writeup,就当是总结好了<br>。</p>
+</blockquote>
+<p>##0x1 r100</p>
+<blockquote>
+<p>这题其实挺简单的，但是我想很多人和我一样都没有去看init_array 和fini_array<br>这两处， 所以在主函数里，大家都多抑或了一个0x7 .这题最大的误导感觉是题目的<br>提示吧， 说是flag内的英文小写， 而我最开始的flag是对称的,就是某个字母的大小写有问题<br>，所以就让我觉得我是对的，导致花了很多时间。不过后来也巧，我去查了下<br>字符串发现多了一个引用，最后才指向了fini_array.真坑.</p>
+</blockquote>
+<p>##0x2 r200 </p>
+<blockquote>
+<p>这题目没有什么好说的，感觉就是我HCTF决赛出的一道题目吧，反正一位位的对比，找出<br>正确flag,没有什么特别的技巧，基本功。</p>
+</blockquote>
+<p>##0x3 r300 </p>
+<blockquote>
+<p>这题刚开始以为是lisp写的就没做，结果赛后才发现这是python…..我这智商也是够了<br>，这里就是两种做法，白盒 或者 黑盒 ，我更倾向与后者。</p>
+</blockquote>
+<p>##0x4 r400 </p>
+<blockquote>
+<p>比赛的时候看这题有点懵，作者也是够6的,然后我的调试器都不能用了，赛后看了大神<br>分析才明白是vs2015之类写的，所以调试器不能识别了.同时呢,ida里那么多函数也是让我凌乱了<br>，所以当时并没有什么手段去调试.然后今天抽空又去看了下这题，忽然想起了微软自家的调试器——windbg<br>,不过刚attach上就拒绝访问，然后给windbg开管理员权限就成功了， 然后就可以调试了。<br>感觉windbg用的还不是很熟练。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    result = *v2;</span><br><span class="line">    v6 = (<span class="keyword">int</span> (*)(<span class="keyword">void</span>))*v2;</span><br><span class="line">    <span class="keyword">if</span> ( *v2 )</span><br><span class="line">    &#123;</span><br><span class="line">      __guard_check_icall_fptr(result);</span><br><span class="line">      result = v6();</span><br><span class="line">    &#125;</span><br><span class="line">    ++v2;</span><br><span class="line">    ++v3;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( v3 != v5 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>关键的是v2,v2指向了一堆函数偏移， 查一下就是整个流程的函数了。<br>所以这里定位好，基本就ok了。后面直接看各个函数就可以解决了。</p>
+</blockquote>
+<p>##0x5 r500 </p>
+<blockquote>
+<p>虽然是r500,但是感觉差不多就是300的题,实际就是一个des解密，然后稍微做了一点变换<br>,然后秘钥就是在代码里了.这里我用的是pyDes，当然也可以使用python的另一个库，那个更全面。</p>
+</blockquote>
+<p>##0x6 pwn100 </p>
+<blockquote>
+<p>看到题目的第一感觉是漏洞重现， 于是百度了一下，找到了cve号码，后来又在exdb上<br>找到了完整的利用的代码， 对比了一下完全一样， 所以shellcode就是90909后面的那一段，<br>运行一下就出结果了。</p>
+</blockquote>
+<p>##0x7 xxx</p>
+<blockquote>
+<p>后面没时间做了</p>
 </blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CTF/">CTF</a>
+  </div>
+
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://n1k0.top/2015/10/10/A-new-new-Start/" data-title="A new new Start | N1k0&#39;s Blog" data-tsina="undefined" class="share clearfix">
+  <div data-url="http://n1k0.top/2015/10/11/XDCTF-RE/" data-title="XDCTF RE | N1k0&#39;s Blog" data-tsina="undefined" class="share clearfix">
   </div>
 
 </div>
@@ -96,14 +140,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/10/11/XDCTF-RE/" title="XDCTF RE">
-  <strong>上一篇：</strong><br/>
-  <span>
-  XDCTF RE</span>
+
+<div class="next">
+<a href="/2015/10/10/A-new-new-Start/"  title="A new new Start">
+ <strong>下一篇：</strong><br/> 
+ <span>A new new Start
+</span>
 </a>
 </div>
-
 
 </nav>
 
