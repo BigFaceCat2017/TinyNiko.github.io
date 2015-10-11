@@ -513,7 +513,6 @@ a.article-title:hover,
   font-family: 'PT Serif', 'STZhongsong', '华文中宋', 'Microsoft Yahei', serif;
   font-size: 1.4em;
   margin: 1.4em 20px;
-  text-align: center;
 }
 .article-entry blockquote footer {
   font-size: 16px;
@@ -717,6 +716,7 @@ a.article-title:hover,
 }
 #page-nav {
   margin: 50px auto;
+  text-align: center;
   overflow: hidden;
 }
 #page-nav:before,
