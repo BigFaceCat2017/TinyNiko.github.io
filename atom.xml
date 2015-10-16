@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Less is more]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://n1k0.top/"/>
-  <updated>2015-10-11T17:16:33.000Z</updated>
+  <updated>2015-10-16T16:20:37.000Z</updated>
   <id>http://n1k0.top/</id>
   
   <author>
@@ -15,52 +15,77 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[pthread]]></title>
+    <link href="http://n1k0.top/2015/10/17/pthread/"/>
+    <id>http://n1k0.top/2015/10/17/pthread/</id>
+    <published>2015-10-16T16:06:03.000Z</published>
+    <updated>2015-10-16T16:20:37.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Linux_Pthread_create_传参问题">Linux Pthread_create 传参问题</h1><h2 id="0x00_前言">0x00 前言</h2><blockquote>
+<p>某东的课要求我们实现一个用socket通信的程序, 用C/C++写,虽然用<br>很多语言写过这个了,但是这次想在linux平台上试一下。于是就写了个代码测试一下,然而在使用pthread的时候,程序报了一个貌似函数类型错误的的错误,然后就大致的了解了一下。<br><a id="more"></a></p>
+<h2 id="0x1_解析">0x1 解析</h2><p>此处我要吐槽学校图书馆的渣网速,连进去就被踢出来是什么鬼！！！<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;pthread.h&gt; </span><br><span class="line">int  pthread_create((pthread_t  *thread,  pthread_attr_t  *attr,  void  *(*start_routine)(void  *),  void  *arg)</span><br><span class="line">//另外gcc 编译的时候加上 -pthread 选项</span><br></pre></td></tr></table></figure></p>
+<p>这里要注意的是 线程函数的类型 必须是void <em>(func)(void </em>) , 然后第四个参数是传递给func的参数,这里可以看到,只能传一个void *类型的<br>指针给线程函数,当然,不传就是NULL.</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顺手写一个小demo</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">func</span><span class="params">(<span class="keyword">void</span> *arg)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> da=*(<span class="keyword">int</span> *)arg ;</span><br><span class="line">	dosth() ; </span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span> ; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> a1 ;</span><br><span class="line"><span class="keyword">int</span> b2 ; </span><br><span class="line">&#125;hehe,*heheptr;</span><br><span class="line"><span class="keyword">int</span> arg ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_t</span> threadid ; </span><br><span class="line"><span class="keyword">if</span>(pthread_create(&amp;threadid ,<span class="literal">NULL</span>, func ,(<span class="keyword">void</span> *)&amp;arg)==-<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"error %s(%d)"</span> ,strerror(errno) ,errno) ; </span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>) ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面这个展示了如何传单个参数,如果想传递多个参数的话就需要用到结构体了,<br>有了上面的demo后,传结构体其实也比较简单了, 就用结构体指针指一下就OK了。以上是关于create的问题 。下面讲一下如何判断线程是否还活着。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pthread_kill(<span class="keyword">pthread_t</span> id , <span class="keyword">int</span> sig) ;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当sig==0 时, 用于测试线程是否还活着, 另外 当返回是0的时候线程还是活着的, 当线程返回ESRCH 表示线程不存在,EINVAL则说明sig不合法。 </p>
+</blockquote>
+<p>引用:</p>
+<ul>
+<li><a href="http://stackoverflow.com/questions/11253025/pthread-create-not-working-passing-argument-3-warning" target="_blank" rel="external">stackoverflow</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Linux_Pthread_create_传参问题">Linux Pthread_create 传参问题</h1><h2 id="0x00_前言">0x00 前言</h2><blockquote>
+<p>某东的课要求我们实现一个用socket通信的程序, 用C/C++写,虽然用<br>很多语言写过这个了,但是这次想在linux平台上试一下。于是就写了个代码测试一下,然而在使用pthread的时候,程序报了一个貌似函数类型错误的的错误,然后就大致的了解了一下。<br>]]>
+    
+    </summary>
+    
+      <category term="linux c" scheme="http://n1k0.top/tags/linux-c/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[XDCTF RE]]></title>
     <link href="http://n1k0.top/2015/10/11/XDCTF-RE/"/>
     <id>http://n1k0.top/2015/10/11/XDCTF-RE/</id>
     <published>2015-10-11T14:54:43.000Z</published>
-    <updated>2015-10-11T17:16:33.000Z</updated>
-    <content type="html"><![CDATA[<p>#0x0 前言</p>
-<blockquote>
+    <updated>2015-10-16T16:20:18.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="0x0_前言">0x0 前言</h2><blockquote>
 <p>花了点时间做了下XDCTF的RE部分和pwn,不打算写writeup,就当是总结好了</p>
 </blockquote>
 <a id="more"></a>
-<p>##0x1 r100</p>
-<blockquote>
+<h2 id="0x1_r100">0x1 r100</h2><blockquote>
 <p>这题其实挺简单的，但是我想很多人和我一样都没有去看init_array 和fini_array这两处， 所以在主函数里，大家都多抑或了一个0x7 .这题最大的误导感觉是题目的提示吧,说是flag内的英文小写,而我最开始的flag是对称的,就是某个字母的大小写有问题,所以就让我觉得我是对的，导致花了很多时间。不过后来也巧，我去查了下字符串发现多了一个引用，最后才指向了fini_array.真坑.</p>
 </blockquote>
-<p>##0x2 r200 </p>
-<blockquote>
+<h2 id="0x2_r200">0x2 r200</h2><blockquote>
 <p>这题目没有什么好说的，感觉就是我HCTF决赛出的一道题目吧，反正一位位的对比,找出正确flag,没有什么特别的技巧,基本功。</p>
 </blockquote>
-<p>##0x3 r300 </p>
-<blockquote>
+<h2 id="0x3_r300">0x3 r300</h2><blockquote>
 <p>这题刚开始以为是lisp写的就没做，结果赛后才发现这是python…..我这智商也是够了,这里就是两种做法，白盒 或者 黑盒 ，我更倾向与后者。</p>
 </blockquote>
-<p>##0x4 r400 </p>
-<blockquote>
+<h2 id="0x4_r400">0x4 r400 </h2><blockquote>
 <p>比赛的时候看这题有点懵,作者也是够6的,然后我的调试器都不能用了，赛后看了大神分析才明白是vs2015之类写的，所以调试器不能识别了.同时呢,ida里那么多函数也是让我凌乱了,所以当时并没有什么手段去调试.然后今天抽空又去看了下这题，忽然想起了微软自家的调试器——windbg,不过attach上就拒绝访问,然后给windbg开管理员权限就成功了,然后就可以调试了.感觉windbg用的还不是很熟练。</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    result = *v2;</span><br><span class="line">    v6 = (<span class="keyword">int</span> (*)(<span class="keyword">void</span>))*v2;</span><br><span class="line">    <span class="keyword">if</span> ( *v2 )</span><br><span class="line">    &#123;</span><br><span class="line">      __guard_check_icall_fptr(result);</span><br><span class="line">      result = v6();</span><br><span class="line">    &#125;</span><br><span class="line">    ++v2;</span><br><span class="line">    ++v3;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( v3 != v5 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>关键的是v2,v2指向了一堆函数偏移,查一下就是整个流程的函数了。<br>所以这里定位好,基本就ok了.后面直接看各个函数就可以解决了。</p>
 </blockquote>
-<p>##0x5 r500 </p>
-<blockquote>
+<h2 id="0x5_r500">0x5 r500</h2><blockquote>
 <p>虽然是r500,但是感觉差不多就是300的题,实际就是一个des解密,然后稍微做了一点变换,然后秘钥就是在代码里了.这里我用的是pyDes,当然也可以使用python的另一个库,那个更全面。</p>
 </blockquote>
-<p>##0x6 pwn100 </p>
-<blockquote>
+<h2 id="0x6_pwn100">0x6 pwn100</h2><blockquote>
 <p>看到题目的第一感觉是漏洞重现,于是百度了一下,找到了cve号码,后来又在exdb上找到了完整的利用的代码,对比了一下完全一样,所以shellcode就是909090后面的 运行一下就出结果了.</p>
 </blockquote>
-<p>##0x7 xxx</p>
-<blockquote>
+<h2 id="0x7_xxx">0x7 xxx</h2><blockquote>
 <p>后面没时间做了</p>
 </blockquote>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>#0x0 前言</p>
-<blockquote>
+    <![CDATA[<h2 id="0x0_前言">0x0 前言</h2><blockquote>
 <p>花了点时间做了下XDCTF的RE部分和pwn,不打算写writeup,就当是总结好了</p>
 </blockquote>]]>
     
