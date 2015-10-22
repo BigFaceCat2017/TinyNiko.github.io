@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>makefile - N1k0&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="0x00 前言Makefile 是 编译大型项目的基础, 但是在windows下,强大的IDE已经帮我们把所有的一切都做好了,你只要点点鼠标就可以把目录划分好.而linux下这些都要自己来做,就算是使用cmake,规则还是要自己写的.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="makefile">
+<meta property="og:url" content="http://n1k0.top/2015/10/23/makefile/index.html">
+<meta property="og:site_name" content="N1k0's Blog">
+<meta property="og:description" content="0x00 前言Makefile 是 编译大型项目的基础, 但是在windows下,强大的IDE已经帮我们把所有的一切都做好了,你只要点点鼠标就可以把目录划分好.而linux下这些都要自己来做,就算是使用cmake,规则还是要自己写的.">
+<meta property="og:updated_time" content="2015-10-22T17:23:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="makefile">
+<meta name="twitter:description" content="0x00 前言Makefile 是 编译大型项目的基础, 但是在windows下,强大的IDE已经帮我们把所有的一切都做好了,你只要点点鼠标就可以把目录划分好.而linux下这些都要自己来做,就算是使用cmake,规则还是要自己写的.">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">N1k0</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://n1k0.top"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-makefile" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      makefile
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2015/10/23/makefile/" class="article-date">
+  <time datetime="2015-10-22T17:22:12.000Z" itemprop="datePublished">2015-10-23</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0x00_前言">0x00 前言</h2><p>Makefile 是 编译大型项目的基础, 但是在windows下,强大的IDE已经帮我们把所有的一切都做好了,你只要点点鼠标就可以把目录划分好.而linux下这些都要自己来做,就算是使用cmake,规则还是要自己写的.<br><a id="more"></a></p>
+<h2 id="0x01_Demo">0x01 Demo </h2><p>下面是目录树</p>
+<ul>
+<li>Mygame<ul>
+<li>Include<ul>
+<li>xx.h</li>
+<li>xxx.h </li>
+</ul>
+</li>
+<li>src<ul>
+<li>xx.c</li>
+<li>xxx.c</li>
+<li>xxxx.c </li>
+</ul>
+</li>
+<li>score<br> *some recoder  </li>
+<li>Makefile </li>
+</ul>
+</li>
+</ul>
+<p>当然 ,还可以加别的目录,总之就是让你的工程看上去有条理.然后每次写完代码直接make一下就可以省去很多繁琐的gcc编译了.</p>
+<p>然后展示一下我的makefile , 这是makefile里最简单的一种, 之前看了一个高阶的makefile,不过链接丢了,这里有一个比较详细的链接,是左耳朵耗子写的一个教程,灰常详细了,*<a href="http://blog.csdn.net/haoel/article/details/2886/" target="_blank" rel="external">链接</a><br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="constant">CC</span>=gcc</span><br><span class="line"><span class="constant">VPATH</span>=./src:./include</span><br><span class="line"><span class="constant">FLAG</span>=-I include  </span><br><span class="line"><span class="constant">OBJS</span>=mygame.o mymath.o mybattle.o myrecoder.o </span><br><span class="line"></span><br><span class="line">game:$(OBJS)</span><br><span class="line">	<span class="variable">$(CC)</span> -g -o game  <span class="variable">$(OBJS)</span> <span class="variable">$(FLAG)</span></span><br><span class="line">mygame.o :mygame.c </span><br><span class="line">	<span class="variable">$(CC)</span> -g -c <span class="variable">$(FLAG)</span> $&lt; </span><br><span class="line">mymath.o : mymath.c mymath.h </span><br><span class="line">	<span class="variable">$(CC)</span>  -g -c <span class="variable">$(FLAG)</span> $&lt;  </span><br><span class="line">mybattle.o:mybattle.c battlefunc.h recoderfunc.h mymath.h  </span><br><span class="line">	<span class="variable">$(CC)</span> -g -c <span class="variable">$(FLAG)</span> $&lt; </span><br><span class="line">myrecoder.o:myrecoder.c recoderfunc.h</span><br><span class="line">	<span class="variable">$(CC)</span> -g -c <span class="variable">$(FLAG)</span> $&lt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="phony"><span class="keyword">.PHONY</span>:clean</span></span><br><span class="line"><span class="title">clean:</span></span><br><span class="line">	echo 'rm starting'</span><br><span class="line">	rm -rf <span class="variable">$(OBJS)</span></span><br></pre></td></tr></table></figure></p>
+<p>可以看到,对于中小型工程这么写还是比较清晰的, 但是对于大工程,总不可能每个.o 文件都写两行吧, 所以后面就需要更加高级的makefile语法了,这个就请大家自行谷歌了解.</p>
+<p>这里重要的是VPATH,这个的意思就是当某些文件不在当前路径时,就是设置的目录里找,刚开始一直报错说找不到文件什么,加了这个就ok.另外这里有个小坑,也是我自己逗比了,可能是我记错了,以前编译汇编的时候, nmake 会自动清除掉.o 文件, 但是在linux下,需要手动make clean ,这样才会触发后面的clean 语句. </p>
+
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/17/pthread/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pthread&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 N1k0&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>
