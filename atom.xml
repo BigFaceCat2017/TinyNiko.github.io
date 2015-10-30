@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Less is more]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://n1k0.top/"/>
-  <updated>2015-10-22T17:23:36.000Z</updated>
+  <updated>2015-10-30T15:25:44.000Z</updated>
   <id>http://n1k0.top/</id>
   
   <author>
@@ -13,6 +13,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android JNI TEST]]></title>
+    <link href="http://n1k0.top/2015/10/24/Android-JNI-TEST/"/>
+    <id>http://n1k0.top/2015/10/24/Android-JNI-TEST/</id>
+    <published>2015-10-24T09:15:22.000Z</published>
+    <updated>2015-10-30T15:25:44.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="0x00_前言">0x00 前言</h2><blockquote>
+<p>今天出了一道简单的android 逆向题,主要就是动态修改java层的value.但是实际在写的过程中,还是遇到了一些问题。以下就是一些问题的总结吧。<br><a id="more"></a></p>
+<h2 id="0x01_错误总结">0x01 错误总结</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jclass mainclass = (*env)-&gt;FindClass(env, <span class="string">"caf3/com/crackme2/crackme"</span>) ;</span><br><span class="line">jmethodID  init = (*env)-&gt;GetMethodID(env, mainclass , <span class="string">"&lt;init&gt;"</span> , <span class="string">"()V"</span>) ;</span><br><span class="line">jobject    obj = (*env)-&gt;NewObject(env, mainclass ,init) ;</span><br><span class="line">jfieldID  hehe = (*env)-&gt;GetStaticFieldID(env,mainclass,<span class="string">"hehe"</span> ,<span class="string">"Ljava/lang/String;"</span>) ;</span><br><span class="line"> (*env)-&gt;SetObjectField(env, obj , cmpstringid  , newstring) ;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>1这里我本来是打算获取一个类，然后修改类中的String 值， 但是实际上我使用了NewObject ，相当于new 了一个<br>新的类， 所以对这个类的修改是无法影响到原来的类的。这里有三种方法， 一种是直接使用静态字段(推荐),第二种就是在初始化的时候传入Main对象,然后再放到jni层啪啪啪，第三种就是直接在Main中调用函数。第二种相对来说比较明显，第三种还可以，在jni层可以通过GetObjectClass 来处理。当然，在Main类里使用java反射机制也有一定的混淆效果。</p>
+<p>2木有实际的代码,只是想说，在写代码的时候就要考虑到用户输入可能产生的异常，提前做好预防,比如我代码里把用户输入的字符数减了一个值，所以就要保证用户输入大于那个值,不然如果遇到u4类型就GG了。</p>
+<h2 id="0x02_第二题">0x02 第二题 </h2><p>实际上第二题还没出, 但是大概的东西已经想好了，是前辈去年写的一个东西,对elf(so)文件做一些改动,然后用这些改动的值去恢复原来的代码,当然,这里肯定没那么简单啦,后面还会加入一些反静态的东西,hook这种东西肯定是少不了的,最后加一点新的算法吧，总是MD5,AES,DES ,RC4, 也该加点新的东西进来了. </p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="0x00_前言">0x00 前言</h2><blockquote>
+<p>今天出了一道简单的android 逆向题,主要就是动态修改java层的value.但是实际在写的过程中,还是遇到了一些问题。以下就是一些问题的总结吧。<br>]]>
+    
+    </summary>
+    
+      <category term="Android JNI" scheme="http://n1k0.top/tags/Android-JNI/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[makefile]]></title>
