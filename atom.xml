@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Less is more]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://n1k0.top/"/>
-  <updated>2015-10-30T15:25:44.000Z</updated>
+  <updated>2015-12-04T14:32:04.000Z</updated>
   <id>http://n1k0.top/</id>
   
   <author>
@@ -13,6 +13,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[操作系统实验1]]></title>
+    <link href="http://n1k0.top/2015/12/03/heheda/"/>
+    <id>http://n1k0.top/2015/12/03/heheda/</id>
+    <published>2015-12-02T17:13:42.000Z</published>
+    <updated>2015-12-04T14:32:04.000Z</updated>
+    <content type="html"><![CDATA[<p>#0x00 前言<br>这周操作系统课有个题目要验收，主要是把一个基于时间片的线程切换转成基于优先级的线程切换。思路大家都想的到，就是修改find函数，找到一个优先级最大且没有finished的线程。但是呢只是改find，最后会报错。于是有同学把new_int8里的find提前了，也就是只有当i不同的时候才会进行进程切换，但是问了几个同学还有老师，感觉说的都比较模糊。<br>对了，有一个说只要把i==count那行去掉就可以运行了。但是这到底有啥区别呢，且看Niko分析一下。</p>
+<p>#0x01 分析<br>从崩溃的地方可以看到，崩溃点在进行切换处，那么可以定位是over,或者是swich函数出了问题。debug了一下， 发现线程当前状态根本不是RUNNING，在会看代码<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">over</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(tcb[current].state==RUNNING)</span><br><span class="line">	&#123;</span><br><span class="line">		disable();</span><br><span class="line">		tcb[current].state=FINISHED;</span><br><span class="line">		<span class="built_in">strcpy</span>(tcb[current].name,<span class="literal">NULL</span>);</span><br><span class="line">		<span class="built_in">free</span>(tcb[current].<span class="built_in">stack</span>);</span><br><span class="line">		enable();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	swtch();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">new_int8()</span><br><span class="line">&#123;</span><br><span class="line">			disable();</span><br><span class="line"><span class="comment">//			asm CLI</span></span><br><span class="line"></span><br><span class="line">			tcb[current].ss=_SS;</span><br><span class="line">			tcb[current].sp=_SP;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(tcb[current].state==RUNNING)</span><br><span class="line">				tcb[current].state=READY;</span><br><span class="line"></span><br><span class="line">			i=Find();</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(i==current)</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">			_SS=tcb[i].ss;</span><br><span class="line">			_SP=tcb[i].sp;</span><br><span class="line">			tcb[i].state=RUNNING;</span><br><span class="line"></span><br><span class="line">			timecount=<span class="number">0</span>;</span><br><span class="line">			current=i;</span><br><span class="line"></span><br><span class="line">			enable();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到这里讲RUNNING的线程改成READY,但是在i==count处返回，也就是线程一直是READY状态，而over函数多了一个if条件,只有RUNNING才可以finish,所以问题的关键是在状态切换上。</p>
+<p>#0x02 修改<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">	去掉over里的<span class="keyword">if</span>语句。</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	<span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;NTCB; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>((tcb[j].pre &gt;= tcb[max].pre) &amp;&amp; (tcb[j].state != FINISHED))</span><br><span class="line">		&#123;</span><br><span class="line">				max=j;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不修改over的话就要想办法使线程一直处于RUNNING状态，这个方法应该 99%的人都在用。。。</p>
+<p>#0x03  感想 </p>
+<blockquote>
+<p>不知道怎么说好，进入大三后状态有点下滑吧，有点像是力不从心，在课程上总体有下滑的趋势吧，或许也有点浮躁，总是不能静下心来想东西，不过最近感觉这种状态改善了不少。</p>
+</blockquote>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>#0x00 前言<br>这周操作系统课有个题目要验收，主要是把一个基于时间片的线程切换转成基于优先级的线程切换。思路大家都想的到，就是修改find函数，找到一个优先级最大且没有finished的线程。但是呢只是改find，最后会报错。于是有同学把new_int8里的find]]>
+    </summary>
+    
+      <category term="OS C" scheme="http://n1k0.top/tags/OS-C/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android JNI TEST]]></title>
