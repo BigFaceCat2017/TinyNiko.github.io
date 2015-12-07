@@ -1,26 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[N1k0's Blog]]></title>
-  <subtitle><![CDATA[Less is more]]></subtitle>
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://n1k0.top/"/>
-  <updated>2015-12-07T16:40:42.000Z</updated>
-  <id>http://n1k0.top/</id>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
   
-  <author>
-    <name><![CDATA[N1k0]]></name>
+  <title>dex modify - N1k0&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#动态修改Dex 
+##说明
+
+这个技术一两年前就已经出现了,但是效果还是有的,不过对于小项目来说,瞄准了so文件就很有可能发现so对dex做了修改。然而大项目的so文件较多,一般不容易被发现。简单说一下这个动态修改的过程
+
+找到dex文件的base
+找到要修改的类的Dexcode结构体
+mprotect修改页权限,修改insns的字节整个过程还是很明确的,也不是很难。下面将展示代码。另外这个代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dex modify">
+<meta property="og:url" content="http://n1k0.top/2015/12/08/dex-modify/index.html">
+<meta property="og:site_name" content="N1k0's Blog">
+<meta property="og:description" content="#动态修改Dex 
+##说明
+
+这个技术一两年前就已经出现了,但是效果还是有的,不过对于小项目来说,瞄准了so文件就很有可能发现so对dex做了修改。然而大项目的so文件较多,一般不容易被发现。简单说一下这个动态修改的过程
+
+找到dex文件的base
+找到要修改的类的Dexcode结构体
+mprotect修改页权限,修改insns的字节整个过程还是很明确的,也不是很难。下面将展示代码。另外这个代码">
+<meta property="og:updated_time" content="2015-12-07T16:40:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="dex modify">
+<meta name="twitter:description" content="#动态修改Dex 
+##说明
+
+这个技术一两年前就已经出现了,但是效果还是有的,不过对于小项目来说,瞄准了so文件就很有可能发现so对dex做了修改。然而大项目的so文件较多,一般不容易被发现。简单说一下这个动态修改的过程
+
+找到dex文件的base
+找到要修改的类的Dexcode结构体
+mprotect修改页权限,修改insns的字节整个过程还是很明确的,也不是很难。下面将展示代码。另外这个代码">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">N1k0</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://n1k0.top"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-dex-modify" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-  </author>
+    
+      <header class="article-header">
+        
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+    <h1 class="article-title" itemprop="name">
+      dex modify
+    </h1>
   
-  <entry>
-    <title><![CDATA[dex modify]]></title>
-    <link href="http://n1k0.top/2015/12/08/dex-modify/"/>
-    <id>http://n1k0.top/2015/12/08/dex-modify/</id>
-    <published>2015-12-07T16:32:17.000Z</published>
-    <updated>2015-12-07T16:40:42.000Z</updated>
-    <content type="html"><![CDATA[<p>#动态修改Dex </p>
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2015/12/08/dex-modify/" class="article-date">
+  <time datetime="2015-12-07T16:32:17.000Z" itemprop="datePublished">2015-12-08</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#动态修改Dex </p>
 <p>##说明</p>
 <blockquote>
 <p>这个技术一两年前就已经出现了,但是效果还是有的,不过对于小项目来说,瞄准了so文件就很有可能发现so对dex做了修改。然而大项目的so文件较多,一般不容易被发现。<br>简单说一下这个动态修改的过程</p>
@@ -40,211 +118,51 @@
 <ul>
 <li><a href="https://github.com/TinyNiko/dexdemo" target="_blank" rel="external">链接</a></li>
 </ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>#动态修改Dex </p>
-<p>##说明</p>
-<blockquote>
-<p>这个技术一两年前就已经出现了,但是效果还是有的,不过对于小项目来说,瞄准了so文件就很有可能发现so对dex做了修改。然而大项目的so文件较多,一般不容易被发现。<br>简单说一下这个动态修改的过程</p>
-<ul>
-<li>找到dex文件的base</li>
-<li>找到要修改的类的Dexcode结构体</li>
-<li>mprotect修改页权限,修改insns的字节<br>整个过程还是很明确的,也不是很难。下面将展示代码。另外这个代码是从大牛博客上转的,但是我对其中的一些代码修改了一下了,可以在我的机子(4.1)上运行,侵删.]]>
-    
-    </summary>
-    
-      <category term="android" scheme="http://n1k0.top/tags/android/"/>
-    
-      <category term="sec" scheme="http://n1k0.top/tags/sec/"/>
-    
-  </entry>
+
+      
+    </div>
   
-  <entry>
-    <title><![CDATA[操作系统实验1]]></title>
-    <link href="http://n1k0.top/2015/12/03/heheda/"/>
-    <id>http://n1k0.top/2015/12/03/heheda/</id>
-    <published>2015-12-02T17:13:42.000Z</published>
-    <updated>2015-12-04T14:32:04.000Z</updated>
-    <content type="html"><![CDATA[<p>#0x00 前言<br>这周操作系统课有个题目要验收，主要是把一个基于时间片的线程切换转成基于优先级的线程切换。思路大家都想的到，就是修改find函数，找到一个优先级最大且没有finished的线程。但是呢只是改find，最后会报错。于是有同学把new_int8里的find提前了，也就是只有当i不同的时候才会进行进程切换，但是问了几个同学还有老师，感觉说的都比较模糊。<br>对了，有一个说只要把i==count那行去掉就可以运行了。但是这到底有啥区别呢，且看Niko分析一下。</p>
-<p>#0x01 分析<br>从崩溃的地方可以看到，崩溃点在进行切换处，那么可以定位是over,或者是swich函数出了问题。debug了一下， 发现线程当前状态根本不是RUNNING，在会看代码<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">over</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(tcb[current].state==RUNNING)</span><br><span class="line">	&#123;</span><br><span class="line">		disable();</span><br><span class="line">		tcb[current].state=FINISHED;</span><br><span class="line">		<span class="built_in">strcpy</span>(tcb[current].name,<span class="literal">NULL</span>);</span><br><span class="line">		<span class="built_in">free</span>(tcb[current].<span class="built_in">stack</span>);</span><br><span class="line">		enable();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	swtch();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">new_int8()</span><br><span class="line">&#123;</span><br><span class="line">			disable();</span><br><span class="line"><span class="comment">//			asm CLI</span></span><br><span class="line"></span><br><span class="line">			tcb[current].ss=_SS;</span><br><span class="line">			tcb[current].sp=_SP;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(tcb[current].state==RUNNING)</span><br><span class="line">				tcb[current].state=READY;</span><br><span class="line"></span><br><span class="line">			i=Find();</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(i==current)</span><br><span class="line">				<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">			_SS=tcb[i].ss;</span><br><span class="line">			_SP=tcb[i].sp;</span><br><span class="line">			tcb[i].state=RUNNING;</span><br><span class="line"></span><br><span class="line">			timecount=<span class="number">0</span>;</span><br><span class="line">			current=i;</span><br><span class="line"></span><br><span class="line">			enable();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以看到这里讲RUNNING的线程改成READY,但是在i==count处返回，也就是线程一直是READY状态，而over函数多了一个if条件,只有RUNNING才可以finish,所以问题的关键是在状态切换上。</p>
-<p>#0x02 修改<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">	去掉over里的<span class="keyword">if</span>语句。</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	<span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;NTCB; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>((tcb[j].pre &gt;= tcb[max].pre) &amp;&amp; (tcb[j].state != FINISHED))</span><br><span class="line">		&#123;</span><br><span class="line">				max=j;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不修改over的话就要想办法使线程一直处于RUNNING状态，这个方法应该 99%的人都在用。。。</p>
-<p>#0x03  感想 </p>
-<blockquote>
-<p>不知道怎么说好，进入大三后状态有点下滑吧，有点像是力不从心，在课程上总体有下滑的趋势吧，或许也有点浮躁，总是不能静下心来想东西，不过最近感觉这种状态改善了不少。</p>
-</blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>#0x00 前言<br>这周操作系统课有个题目要验收，主要是把一个基于时间片的线程切换转成基于优先级的线程切换。思路大家都想的到，就是修改find函数，找到一个优先级最大且没有finished的线程。但是呢只是改find，最后会报错。于是有同学把new_int8里的find]]>
-    </summary>
-    
-      <category term="OS C" scheme="http://n1k0.top/tags/OS-C/"/>
-    
-  </entry>
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sec/">sec</a></li></ul>
+
+    </footer>
   
-  <entry>
-    <title><![CDATA[Android JNI TEST]]></title>
-    <link href="http://n1k0.top/2015/10/24/Android-JNI-TEST/"/>
-    <id>http://n1k0.top/2015/10/24/Android-JNI-TEST/</id>
-    <published>2015-10-24T09:15:22.000Z</published>
-    <updated>2015-10-30T15:25:44.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="0x00_前言">0x00 前言</h2><blockquote>
-<p>今天出了一道简单的android 逆向题,主要就是动态修改java层的value.但是实际在写的过程中,还是遇到了一些问题。以下就是一些问题的总结吧。<br><a id="more"></a></p>
-<h2 id="0x01_错误总结">0x01 错误总结</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jclass mainclass = (*env)-&gt;FindClass(env, <span class="string">"caf3/com/crackme2/crackme"</span>) ;</span><br><span class="line">jmethodID  init = (*env)-&gt;GetMethodID(env, mainclass , <span class="string">"&lt;init&gt;"</span> , <span class="string">"()V"</span>) ;</span><br><span class="line">jobject    obj = (*env)-&gt;NewObject(env, mainclass ,init) ;</span><br><span class="line">jfieldID  hehe = (*env)-&gt;GetStaticFieldID(env,mainclass,<span class="string">"hehe"</span> ,<span class="string">"Ljava/lang/String;"</span>) ;</span><br><span class="line"> (*env)-&gt;SetObjectField(env, obj , cmpstringid  , newstring) ;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>1这里我本来是打算获取一个类，然后修改类中的String 值， 但是实际上我使用了NewObject ，相当于new 了一个<br>新的类， 所以对这个类的修改是无法影响到原来的类的。这里有三种方法， 一种是直接使用静态字段(推荐),第二种就是在初始化的时候传入Main对象,然后再放到jni层啪啪啪，第三种就是直接在Main中调用函数。第二种相对来说比较明显，第三种还可以，在jni层可以通过GetObjectClass 来处理。当然，在Main类里使用java反射机制也有一定的混淆效果。</p>
-<p>2木有实际的代码,只是想说，在写代码的时候就要考虑到用户输入可能产生的异常，提前做好预防,比如我代码里把用户输入的字符数减了一个值，所以就要保证用户输入大于那个值,不然如果遇到u4类型就GG了。</p>
-<h2 id="0x02_第二题">0x02 第二题 </h2><p>实际上第二题还没出, 但是大概的东西已经想好了，是前辈去年写的一个东西,对elf(so)文件做一些改动,然后用这些改动的值去恢复原来的代码,当然,这里肯定没那么简单啦,后面还会加入一些反静态的东西,hook这种东西肯定是少不了的,最后加一点新的算法吧，总是MD5,AES,DES ,RC4, 也该加点新的东西进来了. </p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="0x00_前言">0x00 前言</h2><blockquote>
-<p>今天出了一道简单的android 逆向题,主要就是动态修改java层的value.但是实际在写的过程中,还是遇到了一些问题。以下就是一些问题的总结吧。<br>]]>
-    
-    </summary>
-    
-      <category term="Android JNI" scheme="http://n1k0.top/tags/Android-JNI/"/>
-    
-  </entry>
+  </div>
   
-  <entry>
-    <title><![CDATA[makefile]]></title>
-    <link href="http://n1k0.top/2015/10/23/makefile/"/>
-    <id>http://n1k0.top/2015/10/23/makefile/</id>
-    <published>2015-10-22T17:22:12.000Z</published>
-    <updated>2015-10-22T17:23:36.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="0x00_前言">0x00 前言</h2><p>Makefile 是 编译大型项目的基础, 但是在windows下,强大的IDE已经帮我们把所有的一切都做好了,你只要点点鼠标就可以把目录划分好.而linux下这些都要自己来做,就算是使用cmake,规则还是要自己写的.<br><a id="more"></a></p>
-<h2 id="0x01_Demo">0x01 Demo </h2><p>下面是目录树</p>
-<ul>
-<li>Mygame<ul>
-<li>Include<ul>
-<li>xx.h</li>
-<li>xxx.h </li>
-</ul>
-</li>
-<li>src<ul>
-<li>xx.c</li>
-<li>xxx.c</li>
-<li>xxxx.c </li>
-</ul>
-</li>
-<li>score<br> *some recoder  </li>
-<li>Makefile </li>
-</ul>
-</li>
-</ul>
-<p>当然 ,还可以加别的目录,总之就是让你的工程看上去有条理.然后每次写完代码直接make一下就可以省去很多繁琐的gcc编译了.</p>
-<p>然后展示一下我的makefile , 这是makefile里最简单的一种, 之前看了一个高阶的makefile,不过链接丢了,这里有一个比较详细的链接,是左耳朵耗子写的一个教程,灰常详细了,*<a href="http://blog.csdn.net/haoel/article/details/2886/" target="_blank" rel="external">链接</a><br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="constant">CC</span>=gcc</span><br><span class="line"><span class="constant">VPATH</span>=./src:./include</span><br><span class="line"><span class="constant">FLAG</span>=-I include  </span><br><span class="line"><span class="constant">OBJS</span>=mygame.o mymath.o mybattle.o myrecoder.o </span><br><span class="line"></span><br><span class="line">game:$(OBJS)</span><br><span class="line">	<span class="variable">$(CC)</span> -g -o game  <span class="variable">$(OBJS)</span> <span class="variable">$(FLAG)</span></span><br><span class="line">mygame.o :mygame.c </span><br><span class="line">	<span class="variable">$(CC)</span> -g -c <span class="variable">$(FLAG)</span> $&lt; </span><br><span class="line">mymath.o : mymath.c mymath.h </span><br><span class="line">	<span class="variable">$(CC)</span>  -g -c <span class="variable">$(FLAG)</span> $&lt;  </span><br><span class="line">mybattle.o:mybattle.c battlefunc.h recoderfunc.h mymath.h  </span><br><span class="line">	<span class="variable">$(CC)</span> -g -c <span class="variable">$(FLAG)</span> $&lt; </span><br><span class="line">myrecoder.o:myrecoder.c recoderfunc.h</span><br><span class="line">	<span class="variable">$(CC)</span> -g -c <span class="variable">$(FLAG)</span> $&lt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="phony"><span class="keyword">.PHONY</span>:clean</span></span><br><span class="line"><span class="title">clean:</span></span><br><span class="line">	echo 'rm starting'</span><br><span class="line">	rm -rf <span class="variable">$(OBJS)</span></span><br></pre></td></tr></table></figure></p>
-<p>可以看到,对于中小型工程这么写还是比较清晰的, 但是对于大工程,总不可能每个.o 文件都写两行吧, 所以后面就需要更加高级的makefile语法了,这个就请大家自行谷歌了解.</p>
-<p>这里重要的是VPATH,这个的意思就是当某些文件不在当前路径时,就是设置的目录里找,刚开始一直报错说找不到文件什么,加了这个就ok.另外这里有个小坑,也是我自己逗比了,可能是我记错了,以前编译汇编的时候, nmake 会自动清除掉.o 文件, 但是在linux下,需要手动make clean ,这样才会触发后面的clean 语句. </p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="0x00_前言">0x00 前言</h2><p>Makefile 是 编译大型项目的基础, 但是在windows下,强大的IDE已经帮我们把所有的一切都做好了,你只要点点鼠标就可以把目录划分好.而linux下这些都要自己来做,就算是使用cmake,规则还是要自己写的.<br>]]>
     
-    </summary>
-    
-      <category term="linux" scheme="http://n1k0.top/tags/linux/"/>
-    
-  </entry>
+<nav id="article-nav">
   
-  <entry>
-    <title><![CDATA[pthread]]></title>
-    <link href="http://n1k0.top/2015/10/17/pthread/"/>
-    <id>http://n1k0.top/2015/10/17/pthread/</id>
-    <published>2015-10-16T16:06:03.000Z</published>
-    <updated>2015-10-16T16:20:37.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="Linux_Pthread_create_传参问题">Linux Pthread_create 传参问题</h1><h2 id="0x00_前言">0x00 前言</h2><blockquote>
-<p>某东的课要求我们实现一个用socket通信的程序, 用C/C++写,虽然用<br>很多语言写过这个了,但是这次想在linux平台上试一下。于是就写了个代码测试一下,然而在使用pthread的时候,程序报了一个貌似函数类型错误的的错误,然后就大致的了解了一下。<br><a id="more"></a></p>
-<h2 id="0x1_解析">0x1 解析</h2><p>此处我要吐槽学校图书馆的渣网速,连进去就被踢出来是什么鬼！！！<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;pthread.h&gt; </span><br><span class="line">int  pthread_create((pthread_t  *thread,  pthread_attr_t  *attr,  void  *(*start_routine)(void  *),  void  *arg)</span><br><span class="line">//另外gcc 编译的时候加上 -pthread 选项</span><br></pre></td></tr></table></figure></p>
-<p>这里要注意的是 线程函数的类型 必须是void <em>(func)(void </em>) , 然后第四个参数是传递给func的参数,这里可以看到,只能传一个void *类型的<br>指针给线程函数,当然,不传就是NULL.</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//顺手写一个小demo</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">func</span><span class="params">(<span class="keyword">void</span> *arg)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> da=*(<span class="keyword">int</span> *)arg ;</span><br><span class="line">	dosth() ; </span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span> ; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> a1 ;</span><br><span class="line"><span class="keyword">int</span> b2 ; </span><br><span class="line">&#125;hehe,*heheptr;</span><br><span class="line"><span class="keyword">int</span> arg ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">pthread_t</span> threadid ; </span><br><span class="line"><span class="keyword">if</span>(pthread_create(&amp;threadid ,<span class="literal">NULL</span>, func ,(<span class="keyword">void</span> *)&amp;arg)==-<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"error %s(%d)"</span> ,strerror(errno) ,errno) ; </span><br><span class="line">	<span class="built_in">exit</span>(<span class="number">0</span>) ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>上面这个展示了如何传单个参数,如果想传递多个参数的话就需要用到结构体了,<br>有了上面的demo后,传结构体其实也比较简单了, 就用结构体指针指一下就OK了。以上是关于create的问题 。下面讲一下如何判断线程是否还活着。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pthread_kill(<span class="keyword">pthread_t</span> id , <span class="keyword">int</span> sig) ;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>当sig==0 时, 用于测试线程是否还活着, 另外 当返回是0的时候线程还是活着的, 当线程返回ESRCH 表示线程不存在,EINVAL则说明sig不合法。 </p>
-</blockquote>
-<p>引用:</p>
-<ul>
-<li><a href="http://stackoverflow.com/questions/11253025/pthread-create-not-working-passing-argument-3-warning" target="_blank" rel="external">stackoverflow</a></li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="Linux_Pthread_create_传参问题">Linux Pthread_create 传参问题</h1><h2 id="0x00_前言">0x00 前言</h2><blockquote>
-<p>某东的课要求我们实现一个用socket通信的程序, 用C/C++写,虽然用<br>很多语言写过这个了,但是这次想在linux平台上试一下。于是就写了个代码测试一下,然而在使用pthread的时候,程序报了一个貌似函数类型错误的的错误,然后就大致的了解了一下。<br>]]>
-    
-    </summary>
-    
-      <category term="linux c" scheme="http://n1k0.top/tags/linux-c/"/>
-    
-  </entry>
   
-  <entry>
-    <title><![CDATA[XDCTF RE]]></title>
-    <link href="http://n1k0.top/2015/10/11/XDCTF-RE/"/>
-    <id>http://n1k0.top/2015/10/11/XDCTF-RE/</id>
-    <published>2015-10-11T14:54:43.000Z</published>
-    <updated>2015-10-16T16:20:18.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="0x0_前言">0x0 前言</h2><blockquote>
-<p>花了点时间做了下XDCTF的RE部分和pwn,不打算写writeup,就当是总结好了</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="0x1_r100">0x1 r100</h2><blockquote>
-<p>这题其实挺简单的，但是我想很多人和我一样都没有去看init_array 和fini_array这两处， 所以在主函数里，大家都多抑或了一个0x7 .这题最大的误导感觉是题目的提示吧,说是flag内的英文小写,而我最开始的flag是对称的,就是某个字母的大小写有问题,所以就让我觉得我是对的，导致花了很多时间。不过后来也巧，我去查了下字符串发现多了一个引用，最后才指向了fini_array.真坑.</p>
-</blockquote>
-<h2 id="0x2_r200">0x2 r200</h2><blockquote>
-<p>这题目没有什么好说的，感觉就是我HCTF决赛出的一道题目吧，反正一位位的对比,找出正确flag,没有什么特别的技巧,基本功。</p>
-</blockquote>
-<h2 id="0x3_r300">0x3 r300</h2><blockquote>
-<p>这题刚开始以为是lisp写的就没做，结果赛后才发现这是python…..我这智商也是够了,这里就是两种做法，白盒 或者 黑盒 ，我更倾向与后者。</p>
-</blockquote>
-<h2 id="0x4_r400">0x4 r400 </h2><blockquote>
-<p>比赛的时候看这题有点懵,作者也是够6的,然后我的调试器都不能用了，赛后看了大神分析才明白是vs2015之类写的，所以调试器不能识别了.同时呢,ida里那么多函数也是让我凌乱了,所以当时并没有什么手段去调试.然后今天抽空又去看了下这题，忽然想起了微软自家的调试器——windbg,不过attach上就拒绝访问,然后给windbg开管理员权限就成功了,然后就可以调试了.感觉windbg用的还不是很熟练。</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    result = *v2;</span><br><span class="line">    v6 = (<span class="keyword">int</span> (*)(<span class="keyword">void</span>))*v2;</span><br><span class="line">    <span class="keyword">if</span> ( *v2 )</span><br><span class="line">    &#123;</span><br><span class="line">      __guard_check_icall_fptr(result);</span><br><span class="line">      result = v6();</span><br><span class="line">    &#125;</span><br><span class="line">    ++v2;</span><br><span class="line">    ++v3;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( v3 != v5 );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>关键的是v2,v2指向了一堆函数偏移,查一下就是整个流程的函数了。<br>所以这里定位好,基本就ok了.后面直接看各个函数就可以解决了。</p>
-</blockquote>
-<h2 id="0x5_r500">0x5 r500</h2><blockquote>
-<p>虽然是r500,但是感觉差不多就是300的题,实际就是一个des解密,然后稍微做了一点变换,然后秘钥就是在代码里了.这里我用的是pyDes,当然也可以使用python的另一个库,那个更全面。</p>
-</blockquote>
-<h2 id="0x6_pwn100">0x6 pwn100</h2><blockquote>
-<p>看到题目的第一感觉是漏洞重现,于是百度了一下,找到了cve号码,后来又在exdb上找到了完整的利用的代码,对比了一下完全一样,所以shellcode就是909090后面的 运行一下就出结果了.</p>
-</blockquote>
-<h2 id="0x7_xxx">0x7 xxx</h2><blockquote>
-<p>后面没时间做了</p>
-</blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="0x0_前言">0x0 前言</h2><blockquote>
-<p>花了点时间做了下XDCTF的RE部分和pwn,不打算写writeup,就当是总结好了</p>
-</blockquote>]]>
-    
-    </summary>
-    
-      <category term="CTF" scheme="http://n1k0.top/tags/CTF/"/>
-    
-  </entry>
+    <a href="/2015/12/03/heheda/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">操作系统实验1&nbsp;<span>&gt;</span></div>
+    </a>
   
-  <entry>
-    <title><![CDATA[A new new Start]]></title>
-    <link href="http://n1k0.top/2015/10/10/A-new-new-Start/"/>
-    <id>http://n1k0.top/2015/10/10/A-new-new-Start/</id>
-    <published>2015-10-09T17:59:44.000Z</published>
-    <updated>2015-10-09T18:19:58.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p>又回到hexo写博客了， 其实最近都没怎么写。。。太忙了，忙得自己都不知道在干什么(成功水得一篇博文- -)</p>
-</blockquote>
-]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p>又回到hexo写博客了， 其实最近都没怎么写。。。太忙了，忙得自己都不知道在干什么(成功水得一篇博文- -)</p>
-</blockquote>
-]]>
-    </summary>
-    
-  </entry>
+</nav>
+
   
-</feed>
+</article>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 N1k0&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>

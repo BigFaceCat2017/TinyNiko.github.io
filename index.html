@@ -54,6 +54,57 @@
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-dex-modify" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/08/dex-modify/">dex modify</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2015/12/08/dex-modify/" class="article-date">
+  <time datetime="2015-12-07T16:32:17.000Z" itemprop="datePublished">2015-12-08</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#动态修改Dex </p>
+<p>##说明</p>
+<blockquote>
+<p>这个技术一两年前就已经出现了,但是效果还是有的,不过对于小项目来说,瞄准了so文件就很有可能发现so对dex做了修改。然而大项目的so文件较多,一般不容易被发现。<br>简单说一下这个动态修改的过程</p>
+<ul>
+<li>找到dex文件的base</li>
+<li>找到要修改的类的Dexcode结构体</li>
+<li>mprotect修改页权限,修改insns的字节<br>整个过程还是很明确的,也不是很难。下面将展示代码。另外这个代码是从大牛博客上转的,但是我对其中的一些代码修改了一下了,可以在我的机子(4.1)上运行,侵删.
+        
+          <p class="article-more-link">
+            <a href="/2015/12/08/dex-modify/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sec/">sec</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+</article>
+
+
+    
       <article id="post-heheda" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -227,52 +278,6 @@
     <footer class="article-footer">
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-c/">linux c</a></li></ul>
-
-    </footer>
-  
-  </div>
-  
-</article>
-
-
-    
-      <article id="post-XDCTF-RE" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/11/XDCTF-RE/">XDCTF RE</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2015/10/11/XDCTF-RE/" class="article-date">
-  <time datetime="2015-10-11T14:54:43.000Z" itemprop="datePublished">2015-10-11</time>
-</a>
-      
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="0x0_前言">0x0 前言</h2><blockquote>
-<p>花了点时间做了下XDCTF的RE部分和pwn,不打算写writeup,就当是总结好了</p>
-</blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2015/10/11/XDCTF-RE/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-  
-    <footer class="article-footer">
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li></ul>
 
     </footer>
   
