@@ -3,9 +3,9 @@
   <title><![CDATA[N1k0's Blog]]></title>
   <subtitle><![CDATA[Less is more]]></subtitle>
   <link href="/atom.xml" rel="self"/>
-  <link href="http://n1k0.top/"/>
+  <link href="https://tinyniko.github.io/"/>
   <updated>2015-12-07T16:40:42.000Z</updated>
-  <id>http://n1k0.top/</id>
+  <id>https://tinyniko.github.io/</id>
   
   <author>
     <name><![CDATA[N1k0]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[dex modify]]></title>
-    <link href="http://n1k0.top/2015/12/08/dex-modify/"/>
-    <id>http://n1k0.top/2015/12/08/dex-modify/</id>
+    <link href="https://tinyniko.github.io/2015/12/08/dex-modify/"/>
+    <id>https://tinyniko.github.io/2015/12/08/dex-modify/</id>
     <published>2015-12-07T16:32:17.000Z</published>
     <updated>2015-12-07T16:40:42.000Z</updated>
     <content type="html"><![CDATA[<p>#动态修改Dex </p>
@@ -53,16 +53,16 @@
     
     </summary>
     
-      <category term="android" scheme="http://n1k0.top/tags/android/"/>
+      <category term="android" scheme="https://tinyniko.github.io/tags/android/"/>
     
-      <category term="sec" scheme="http://n1k0.top/tags/sec/"/>
+      <category term="sec" scheme="https://tinyniko.github.io/tags/sec/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[操作系统实验1]]></title>
-    <link href="http://n1k0.top/2015/12/03/heheda/"/>
-    <id>http://n1k0.top/2015/12/03/heheda/</id>
+    <link href="https://tinyniko.github.io/2015/12/03/heheda/"/>
+    <id>https://tinyniko.github.io/2015/12/03/heheda/</id>
     <published>2015-12-02T17:13:42.000Z</published>
     <updated>2015-12-04T14:32:04.000Z</updated>
     <content type="html"><![CDATA[<p>#0x00 前言<br>这周操作系统课有个题目要验收，主要是把一个基于时间片的线程切换转成基于优先级的线程切换。思路大家都想的到，就是修改find函数，找到一个优先级最大且没有finished的线程。但是呢只是改find，最后会报错。于是有同学把new_int8里的find提前了，也就是只有当i不同的时候才会进行进程切换，但是问了几个同学还有老师，感觉说的都比较模糊。<br>对了，有一个说只要把i==count那行去掉就可以运行了。但是这到底有啥区别呢，且看Niko分析一下。</p>
@@ -79,14 +79,14 @@
     <![CDATA[<p>#0x00 前言<br>这周操作系统课有个题目要验收，主要是把一个基于时间片的线程切换转成基于优先级的线程切换。思路大家都想的到，就是修改find函数，找到一个优先级最大且没有finished的线程。但是呢只是改find，最后会报错。于是有同学把new_int8里的find]]>
     </summary>
     
-      <category term="OS C" scheme="http://n1k0.top/tags/OS-C/"/>
+      <category term="OS C" scheme="https://tinyniko.github.io/tags/OS-C/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Android JNI TEST]]></title>
-    <link href="http://n1k0.top/2015/10/24/Android-JNI-TEST/"/>
-    <id>http://n1k0.top/2015/10/24/Android-JNI-TEST/</id>
+    <link href="https://tinyniko.github.io/2015/10/24/Android-JNI-TEST/"/>
+    <id>https://tinyniko.github.io/2015/10/24/Android-JNI-TEST/</id>
     <published>2015-10-24T09:15:22.000Z</published>
     <updated>2015-10-30T15:25:44.000Z</updated>
     <content type="html"><![CDATA[<h2 id="0x00_前言">0x00 前言</h2><blockquote>
@@ -103,14 +103,14 @@
     
     </summary>
     
-      <category term="Android JNI" scheme="http://n1k0.top/tags/Android-JNI/"/>
+      <category term="Android JNI" scheme="https://tinyniko.github.io/tags/Android-JNI/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[makefile]]></title>
-    <link href="http://n1k0.top/2015/10/23/makefile/"/>
-    <id>http://n1k0.top/2015/10/23/makefile/</id>
+    <link href="https://tinyniko.github.io/2015/10/23/makefile/"/>
+    <id>https://tinyniko.github.io/2015/10/23/makefile/</id>
     <published>2015-10-22T17:22:12.000Z</published>
     <updated>2015-10-22T17:23:36.000Z</updated>
     <content type="html"><![CDATA[<h2 id="0x00_前言">0x00 前言</h2><p>Makefile 是 编译大型项目的基础, 但是在windows下,强大的IDE已经帮我们把所有的一切都做好了,你只要点点鼠标就可以把目录划分好.而linux下这些都要自己来做,就算是使用cmake,规则还是要自己写的.<br><a id="more"></a></p>
@@ -143,14 +143,14 @@
     
     </summary>
     
-      <category term="linux" scheme="http://n1k0.top/tags/linux/"/>
+      <category term="linux" scheme="https://tinyniko.github.io/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[pthread]]></title>
-    <link href="http://n1k0.top/2015/10/17/pthread/"/>
-    <id>http://n1k0.top/2015/10/17/pthread/</id>
+    <link href="https://tinyniko.github.io/2015/10/17/pthread/"/>
+    <id>https://tinyniko.github.io/2015/10/17/pthread/</id>
     <published>2015-10-16T16:06:03.000Z</published>
     <updated>2015-10-16T16:20:37.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Linux_Pthread_create_传参问题">Linux Pthread_create 传参问题</h1><h2 id="0x00_前言">0x00 前言</h2><blockquote>
@@ -177,14 +177,14 @@
     
     </summary>
     
-      <category term="linux c" scheme="http://n1k0.top/tags/linux-c/"/>
+      <category term="linux c" scheme="https://tinyniko.github.io/tags/linux-c/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[XDCTF RE]]></title>
-    <link href="http://n1k0.top/2015/10/11/XDCTF-RE/"/>
-    <id>http://n1k0.top/2015/10/11/XDCTF-RE/</id>
+    <link href="https://tinyniko.github.io/2015/10/11/XDCTF-RE/"/>
+    <id>https://tinyniko.github.io/2015/10/11/XDCTF-RE/</id>
     <published>2015-10-11T14:54:43.000Z</published>
     <updated>2015-10-16T16:20:18.000Z</updated>
     <content type="html"><![CDATA[<h2 id="0x0_前言">0x0 前言</h2><blockquote>
@@ -224,14 +224,14 @@
     
     </summary>
     
-      <category term="CTF" scheme="http://n1k0.top/tags/CTF/"/>
+      <category term="CTF" scheme="https://tinyniko.github.io/tags/CTF/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[A new new Start]]></title>
-    <link href="http://n1k0.top/2015/10/10/A-new-new-Start/"/>
-    <id>http://n1k0.top/2015/10/10/A-new-new-Start/</id>
+    <link href="https://tinyniko.github.io/2015/10/10/A-new-new-Start/"/>
+    <id>https://tinyniko.github.io/2015/10/10/A-new-new-Start/</id>
     <published>2015-10-09T17:59:44.000Z</published>
     <updated>2015-10-09T18:19:58.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
