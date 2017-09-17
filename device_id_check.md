@@ -2,7 +2,7 @@
 
 >内容非原创，只是引用和总结了一下
 
-##Android 设备指纹
+## Android 设备指纹
 常见的就5种方式
 * 网卡mac地址
 * IMEI
@@ -11,7 +11,7 @@
 * 蓝牙mac地址
 
 检测代码如下
-`java
+```java
 //来自简书上的一篇文章
 public class MainActivity extends AppCompatActivity {
 
@@ -169,10 +169,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
-`
+```
 我自己测试的时候发现bluetooth和网卡mac地址是一样的。本着研究的心态，我去看了源码
-`java
+```java
 // /frameworks/base/services/core/java/com/android/server/BluetoothManagerService.java
 //  要自己看的话最好了解一下binder.
 public String getAddress() {
@@ -205,7 +204,7 @@ public String getAddress() {
 1069        return mAddress;
 1070    }
  public static final String DEFAULT_MAC_ADDRESS = "02:00:00:00:00:00";
-`
+```
 
 可以看到前一个if检查是不是system用户，或者是不是在前台，然后检查权限LOCAL_MAC_ADDRESS,这个权限貌似app申请不到，所以返回了默认地址。
 从stackoverflow上找到一个回答
@@ -214,7 +213,7 @@ To provide users with greater data protection, starting in this release, Android
 也就是Android6.0以后不能直接访问mac地址了。但是可以通过别的方式访问.
 另外，在手机root的情况下，这些数据就可能很不可靠了，比如常见的一些hook框架就可以对关键的api进行hook，返回错误结果。
 
-##IOS
+## IOS
 
-##如果有新的姿势会继续更新
+## 如果有新的姿势会继续更新
 
