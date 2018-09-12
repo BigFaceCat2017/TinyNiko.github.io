@@ -36,3 +36,4 @@ PathClassLoader：只能加载系统中已经安装过的apk
 ```
 
 从这边看 ，确实是，如果要加载的dex不在某个列表里 就返回空 ，但是这并不能说PathClassLoader 只能加载系统中安装过的apk，因为上面的代码下面还有很多代码，
+所以说其实在art下PathClassLoader是可以加载dex的，当然对于apk 我并没有测试
