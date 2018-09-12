@@ -1,0 +1,3 @@
+sprintf(dest,"02x",buff)
+这个可以将byte 转换成一个str，arm下没有问题，但是x86下 就会出问题，buff 如果是个char ，那么大于0x80的时候，就是一个负数 ，这个时候dest变成ff ，
+而不是原来的值，只有当buff是unsigned 的时候才正确
